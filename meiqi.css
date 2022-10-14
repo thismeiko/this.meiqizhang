@@ -1,0 +1,26 @@
+h1{
+    text-align: center;
+font-size:32px;
+}
+
+h2{
+ font-size:16px;
+}
+
+p{
+    font-size:14px;
+    text-align:center;
+}
+
+img{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:14px;
+    padding: 10px;
+  width: 500px;
+}
+
+button{
+    
+}
