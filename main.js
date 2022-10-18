@@ -9,36 +9,43 @@ const signer = provider.getSigner();
 console.log(signer);
 const contract = new ethers.Contract(contractAddress,contractABI,provider);
 
+viewVotes();
 
-const contractWithSigner = contract.connect(signer);
+// const contractWithSigner = contract.connect(signer);
 
 // async function init(){
 //     // MetaMask requires requesting permission to connect users accounts
 //     await provider.sende("eth_requestAccounts",[]);
 // }
 
-init();
+// init();
 
-checkNum();
-checkCode();
-$('contractAddress').text(contractAddress);
 setInterval(function(){
-    checkNum();
-    checkCode();
+    viewVotes();
 },2000);
 
-$('#checkCOde').click(function(){
-    checkCOde();
+$('#voteSelectA').click(function(){
+    voteA();
 })
 
-async function checkCode(){
-    const myNum = await contract.checkCode();
-    const convertedNum =+myNum;
-    $('#checkCOde').text(`${convertedNum}`);
+$('#voteSelectB').click(function(){
+    voteB();
+})
+
+async function viewVotes(){
+    const voteCount = await contract.viewVotes();
+    $('#voteA').text(`${voteCount[0]}`);
+    $('#voteB').text(`${voteCount[1]}`);
 }
 
-async function checkCOde() {
+async function voteSlectA() {
     await provider.send("eth_requestAccounts", []);
     const tokenWithSigner = contract.connect(signer);
-    tokenWithSigner.checkCode();
+    tokenWithSigner.voteSlectA();
+}
+
+async function voteSlectB() {
+    await provider.send("eth_requestAccounts", []);
+    const tokenWithSigner = contract.connect(signer);
+    tokenWithSigner.voteSlectB();
 }
