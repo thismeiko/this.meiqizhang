@@ -3,20 +3,15 @@ pragma solidity ^0.8.13;
 
 contract MeiqiZhang {
 
-uint256 public voteA;
-  uint256 public voteB;
+ uint256 public numSeenCode;
 
 
-  function voteSlectA() public {
-    voteA++;
+  function sawCode() public {
+    numSeenCode++;
   }
 
-  function voteSlectB() public {
-    voteB++;
-  }
-
-  function viewVotes() public view returns (uint256, uint256) {
-      return (voteA, voteB);
+  function viewViewers() public view returns (uint256) {
+      return numSeenCode;
   }
 
 }
