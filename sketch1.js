@@ -38,7 +38,7 @@ function draw() {
     }
   }
   
-// noLoop();
+ noLoop();
 }
 
 function mousePressed(){
